@@ -1,0 +1,46 @@
+name: swift
+base: core18
+version: "5.0.1"
+summary: The Swift Programming Language
+description: |
+  Swift is a high-performance system programming language. It has a clean and
+  modern syntax, offers seamless access to existing C and Objective-C code and
+  frameworks, and is memory safe by default.
+grade: stable
+confinement: classic
+architectures: [amd64]
+  
+apps:
+  swift:
+    command: swift.sh
+       
+parts:
+  required-packages:
+    plugin: nil
+    stage-packages:
+      - libatomic1
+      - libbsd0
+      - libcurl4
+      - libxml2
+      - libedit2
+      - libsqlite3-0
+      - libc6-dev
+      - binutils
+      - libgcc-5-dev
+      - libstdc++-5-dev
+      - libpython2.7
+      - tzdata
+      - git
+      - pkg-config
+  swift:
+    plugin: dump
+    source: https://swift.org/builds/swift-5.0.1-release/ubuntu1804/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
+    source-checksum: sha384/f4d8679e2685d4adce3c032e7ff9cb65b87364aecd82c930aadab5f2e232f57047119a130db6c2aaa268624104ddb22c
+    organize:
+      "*": usr
+    after: 
+      - required-packages
+  launcher:
+    plugin: dump
+    source: snap/local
+  
