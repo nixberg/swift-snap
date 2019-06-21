@@ -9,11 +9,11 @@ description: |
 grade: stable
 confinement: classic
 architectures: [amd64]
-  
+
 apps:
   swift:
     command: swift.sh
-       
+
 parts:
   required-packages:
     plugin: nil
@@ -43,4 +43,3 @@ parts:
   launcher:
     plugin: dump
     source: snap/local
-  
