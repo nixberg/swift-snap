@@ -1,7 +1,5 @@
 #!/bin/sh
-export PATH=$PATH:$SNAP/bin:$SNAP/usr/bin
-# CPATH
-# C_INCLUDE_PATH, OBJC_INCLUDE_PATH, CPLUS_INCLUDE_PATH, OBJCPLUS_INCLUDE_PATH
-# LIBRARY_PATH, LD_LIBRARY_PATH
-# TODO: Set? More?
+
+export PATH="${PATH:+${PATH}:}$SNAP/bin:$SNAP/usr/bin"
+
 $SNAP/usr/bin/swift "$@"
